@@ -7,14 +7,17 @@ int conta_linhas(const char *contador_linhas) {
     unsigned int cont_linhas = 0;
     char *linhas;
     while (feof(file) == 0) { /* Enquanto não chegar no final do arquivo */
-      fscanf(file, "%[^\n]s", linhas); 
-      fgetc(file);
+      fscanf(file, "%[^\n]s", linhas); /* Pega a String ate achar um \n */
+      fgetc(file); /* Pegar o \n que sobra */
       cont_linhas++;
     }
     fclose(file);
     return cont_linhas;
   } else {
-    fclose(file);
     return -1; /* Código de erro */
   } /*else (file) */
+}
+
+int verifica_linha_branca(const char *string) {
+  
 }
