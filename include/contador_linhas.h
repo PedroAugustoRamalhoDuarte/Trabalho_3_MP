@@ -1,7 +1,3 @@
-/* Tempo de trabalho 
-	03-10 30min - Organização das pastas,aprender git,casos de testes
-	04-10 7,5min - Comentarios
-*/
 /* Função Conta Linhas
 *	A cada linhas do arquivo a função acrecenta um contador se as funções
 *verifica_linhas_branca e verifica_linha_comentario não retornarem 1
