@@ -26,3 +26,13 @@ TEST_CASE("Arquivo com comentarios do tipo /* */") {
   const char* nome_arquivo = "casos_testes/test4.c";
   REQUIRE(conta_linhas(nome_arquivo) == 4);
 }
+
+TEST_CASE("Arquivo com todos os casos juntos") {
+  const char* nome_arquivo = "casos_testes/test5.c";
+  REQUIRE(conta_linhas(nome_arquivo) == 6);
+}
+
+TEST_CASE("Arquivo com todos os casos juntos v2.0") {
+  const char* nome_arquivo = "casos_testes/test6.c";
+  REQUIRE(conta_linhas(nome_arquivo) == 6);
+}

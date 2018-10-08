@@ -12,24 +12,30 @@ int verifica_linha_branca(const char *string) {
 int verifica_linha_comentarios(const char *string, int *comentario) {
   int flag = 1; /* Flag que verifica se ja houve algum caracter diferente de um espaço em branco */
   int flagComent = 0; /* Flag que verifica se abriu um comentario */
-
-  for (int i = 0; i < strlen(string) - 1; i++){
-    if (string[i] == '/' && string[i + 1] == '/' && flag)
+  int flagComentDepoisDeCodigo = 0;
+  for (int i = 0; i < strlen(string); i++) {
+    if (string[i] == '/' && string[i + 1] == '/' && flag) {
       return 1; /* É comentário do tipo // */
-    if (string[i] != ' ')
-      flag = 0;
+    }
     if (string[i] == '/' && string[i + 1] == '*') {
       *comentario += 1;
       flagComent = 1;
+      if(!flag)
+        flagComentDepoisDeCodigo = 1;
     }
-    if (string[i] == '*' && string[i + 1] == '/')
+    if (string[i] == '*' && string[i + 1] == '/') {
       *comentario += -1;
+      flagComent = 1;
+    }
+    if (string[i] != ' ')
+      flag = 0;
   }/* for */
-
+  if( *comentario == 0 && flagComentDepoisDeCodigo)
+    return 0; /* Não é comentário */ 
   if (flagComent){
     return 1; /* É comentário*/
   } else {
-    return 0;/* Não é comentário */
+    return 0;/* Não é comentário */    
   }
   
 }

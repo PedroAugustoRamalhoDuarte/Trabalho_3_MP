@@ -10,6 +10,6 @@ int func(int a, int b){
   /*
   Agora multiplica por 10
   */
-  c *=10;
+  c *=10; 
   return c;
 }
