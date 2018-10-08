@@ -13,6 +13,6 @@ TEST_CASE("Arquivo nao existente") {
 }
 
 TEST_CASE("Arquivo com espaços") {
-  const char* nome_arquivo = "casos_testes/test100.c";
+  const char* nome_arquivo = "casos_testes/test2.c";
   REQUIRE(conta_linhas(nome_arquivo) == 16);
 }
