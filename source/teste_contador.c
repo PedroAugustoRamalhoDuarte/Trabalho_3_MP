@@ -16,3 +16,8 @@ TEST_CASE("Arquivo com espaços") {
   const char* nome_arquivo = "casos_testes/test2.c";
   REQUIRE(conta_linhas(nome_arquivo) == 16);
 }
+
+TEST_CASE("Arquivo com comentarios do tipo //") {
+  const char* nome_arquivo = "casos_testes/test3.c";
+  REQUIRE(conta_linhas(nome_arquivo) == 3);
+}
