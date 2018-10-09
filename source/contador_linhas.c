@@ -25,7 +25,8 @@ int verifica_linha_comentarios(const char *string, int *comentario, int *nchecar
     }
     if (string[i] == '/' && string[i + 1] == '*') {
       flagComent = 1;
-      *comentario += 1;
+      if (*comentario == 0)
+        *comentario += 1;
       if (!flag) {
         flagComentDepoisDeCodigo = 1;
         *nchecar = 1;

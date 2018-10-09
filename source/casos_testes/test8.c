@@ -1,4 +1,4 @@
-// Caso de teste numero 7
+// Caso de teste numero 8
 #include<stdio.h>
 
 /* Nesse caso de teste vamos misturar os tipos de comentarios
@@ -10,7 +10,7 @@ int func(int a, int b){
   /*
   Agora multiplica por 10
   */
-  c *=10;/* 
+  c *=10;/* /*
   			c *=10 */ 
   return c;
 }

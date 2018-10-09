@@ -32,12 +32,17 @@ TEST_CASE("Arquivo com todos os casos juntos") {
   REQUIRE(conta_linhas(nome_arquivo) == 6);
 }
 
-TEST_CASE("Arquivo com todos os casos juntos v2.0") {
+TEST_CASE("Arquivo com /* */ depois de codigo valido") {
   const char* nome_arquivo = "casos_testes/test6.c";
   REQUIRE(conta_linhas(nome_arquivo) == 6);
 }
 
-TEST_CASE("Arquivo com todos os casos juntos v3.0") {
+TEST_CASE("Arquivo com comentario que comeca em uma linha valida e termina em outra") {
   const char* nome_arquivo = "casos_testes/test7.c";
+  REQUIRE(conta_linhas(nome_arquivo) == 6);
+}
+
+TEST_CASE("Arquivo com /* dentro de outro comentario ") {
+  const char* nome_arquivo = "casos_testes/test8.c";
   REQUIRE(conta_linhas(nome_arquivo) == 6);
 }
