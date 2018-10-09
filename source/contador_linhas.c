@@ -4,8 +4,11 @@
 
 // #include "../include/contador_linhas.h>"
 int verifica_linha_branca(const char *string) {
-  for (int i = 0; i < strlen(string); i++)
-    return 0; /* Não é linha em branco */
+  for (int i = 0; i < strlen(string); i++) {
+    /* Se a linha conter algo diferente do espaço e tab*/
+    if (string[i] != ' ' && string[i] != '\t')
+      return 0; /* Não é linha em branco */
+  }
   return 1; /* É linha em branco*/
 }
 
@@ -18,26 +21,34 @@ int verifica_linha_comentarios(const char *string, int *comentario, int *nchecar
   int flagComentDepoisDeCodigo = 0;
   /* Flag que verifica se há um comentario do tipo // */
   int flagComentarioTipo1 = 0;
+  /* Flag que verifica se o texto esta dentro de uma string "" */
+  int flagString = 0;
 
   for (int i = 0; i < strlen(string); i++) {
-    if (string[i] == '/' && string[i + 1] == '/' && flag) {
-      flagComentarioTipo1 = 1; /* É comentário do tipo // */
+    if (string[i] == '"'){
+      flagString += 1;
     }
-    if (string[i] == '/' && string[i + 1] == '*') {
-      flagComent = 1;
-      if (*comentario == 0)
-        *comentario += 1;
-      if (!flag) {
-        flagComentDepoisDeCodigo = 1;
-        *nchecar = 1;
-      }/* if */
-    }
-    if (string[i] == '*' && string[i + 1] == '/') {
-      *comentario += -1;
-      flagComent = 1;
-    }
-    if (string[i] != ' ')
-      flag = 0;
+    flagString = flagString % 2;
+    if (flagString == 0){
+      if (string[i] == '/' && string[i + 1] == '/' && flag) {
+        flagComentarioTipo1 = 1; /* É comentário do tipo // */
+      }
+      if (string[i] == '/' && string[i + 1] == '*') {
+        flagComent = 1;
+        if (*comentario == 0)
+          *comentario += 1;
+        if (!flag) {
+          flagComentDepoisDeCodigo = 1;
+          *nchecar = 1;
+        }/* if */
+      }
+      if (string[i] == '*' && string[i + 1] == '/') {
+        *comentario += -1;
+        flagComent = 1;
+      }
+      if (string[i] != ' ' && string[i] != '\t')
+        flag = 0;
+    }/* if */
   }/* for */
   if (flagComentarioTipo1) /* Se é comentario do tipo 1 */
     return 1; /* É comentário do tipo // */

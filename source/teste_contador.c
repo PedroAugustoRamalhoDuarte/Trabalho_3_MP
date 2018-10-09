@@ -46,3 +46,8 @@ TEST_CASE("Arquivo com /* dentro de outro comentario ") {
   const char* nome_arquivo = "casos_testes/test8.c";
   REQUIRE(conta_linhas(nome_arquivo) == 6);
 }
+
+TEST_CASE("Arquivo com /* dentro de aspas ") {
+  const char* nome_arquivo = "casos_testes/test9.c";
+  REQUIRE(conta_linhas(nome_arquivo) == 4);
+}
