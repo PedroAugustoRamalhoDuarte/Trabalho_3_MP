@@ -36,3 +36,8 @@ TEST_CASE("Arquivo com todos os casos juntos v2.0") {
   const char* nome_arquivo = "casos_testes/test6.c";
   REQUIRE(conta_linhas(nome_arquivo) == 6);
 }
+
+TEST_CASE("Arquivo com todos os casos juntos v3.0") {
+  const char* nome_arquivo = "casos_testes/test7.c";
+  REQUIRE(conta_linhas(nome_arquivo) == 6);
+}
