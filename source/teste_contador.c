@@ -2,6 +2,8 @@
 #include "../include/catch.hpp"
 #include "../include/contador_linhas.h"
 
+// "Copyright [2018] <Pedro Augusto Ramalho Duarte>"
+
 TEST_CASE("Conta todas as linhas") {
   const char* nome_arquivo = "casos_testes/test1.c";
   REQUIRE(conta_linhas(nome_arquivo) == 8);
@@ -37,7 +39,7 @@ TEST_CASE("Arquivo com /* */ depois de codigo valido") {
   REQUIRE(conta_linhas(nome_arquivo) == 6);
 }
 
-TEST_CASE("Arquivo com comentario que comeca em uma linha valida e termina em outra") {
+TEST_CASE("Comentario que comeca em uma linha valida e termina em outra") {
   const char* nome_arquivo = "casos_testes/test7.c";
   REQUIRE(conta_linhas(nome_arquivo) == 6);
 }
